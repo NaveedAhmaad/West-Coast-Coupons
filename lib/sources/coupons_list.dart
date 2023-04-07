@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:west_coast_coupons/sources/coupon_details.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -66,11 +65,12 @@ class _CouponListState extends State<CouponList> {
       selectedStoreDetail,
       selectedStoreUrl,
       selectedStoreAddress,
-      selectedStorePhone,
-   selectedStoreImage;
+      selectedStorePhone;
+  String? selectedStoreImage;
 
+  bool isLoaded= false;
   Future<void> delay() async{
-   await Future.delayed(Duration(milliseconds: 500));
+   await Future.delayed(Duration(milliseconds: 50));
    isLoaded = true;
   }
 
@@ -81,7 +81,7 @@ class _CouponListState extends State<CouponList> {
     delay();
     super.initState();
   }
-bool isLoaded= false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +107,8 @@ bool isLoaded= false;
           ),
         ),
       ),
-     body: isLoaded ?
+     body:
+     isLoaded ?
       Material(
             // here we have to create the further Screen design in Future-Builder
             // to access the data from api and we have to show this data in our this page,
@@ -262,8 +263,6 @@ bool isLoaded= false;
                                   selectedStoreAddress = sharedPreferences.getString('selectedStoreAddress')!;
                                   selectedStorePhone = sharedPreferences.getString('selectedStorePhone')!;
 
-
-                                  setState(() {});
                                   await Navigator.push(
                                     context,
                                     MaterialPageRoute(

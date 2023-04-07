@@ -11,17 +11,16 @@ class _CouponDetailsState extends State<CouponDetails> {
   //declaring the all properties to store the fetched data for app usage
   //declaring as per app requirements
 
-  late String selectedStoreName,
+  String? selectedStoreName,
       selectedCouponName,
       selectedCouponDetail,
       selectedExpiryDate,
       selectedCouponType,
       selectedStoreDetail,
-      selectedStoreImage,
       selectedStoreUrl,
       selectedStoreAddress,
       selectedStorePhone;
-
+  late String selectedStoreImage;
 
   //getting data from other screen to use accordingly
   getCouponDetails() async {
@@ -37,7 +36,6 @@ class _CouponDetailsState extends State<CouponDetails> {
     selectedStoreAddress = sharedPreferences.getString('selectedStoreAddress')!;
     selectedStorePhone = sharedPreferences.getString('selectedStorePhone')!;
 
-
     setState(() {});
   }
 
@@ -47,6 +45,8 @@ class _CouponDetailsState extends State<CouponDetails> {
     // TODO: implement initState
     super.initState();
     setState(() {
+      selectedStoreImage =
+          "https://westcoastcoupons.co.uk/wp-content/uploads/2021/06/natracare-BxvDij4p1SY-unsplash.jpg";
       getCouponDetails();
     });
   }
@@ -56,7 +56,6 @@ class _CouponDetailsState extends State<CouponDetails> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
         //appbar which contains an image and description title
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -73,7 +72,7 @@ class _CouponDetailsState extends State<CouponDetails> {
               SizedBox(width: 15),
               Expanded(
                 child: Text(
-                  selectedStoreName,
+                  selectedStoreName ?? '',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
@@ -107,7 +106,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                     dense: true,
                     contentPadding: EdgeInsets.zero,
                     title: Text(
-                      selectedCouponName,
+                      selectedCouponName ?? '',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -121,7 +120,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                   contentPadding: EdgeInsets.zero,
                   dense: true,
                   title: Text(
-                    selectedCouponDetail,
+                    selectedCouponDetail ?? '',
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor,
@@ -135,13 +134,13 @@ class _CouponDetailsState extends State<CouponDetails> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        selectedExpiryDate,
+                        selectedExpiryDate ?? '',
                         style: TextStyle(
                           fontSize: 20,
                         ),
                       ),
                       Text(
-                        selectedCouponType,
+                        selectedCouponType ?? '',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -157,7 +156,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: Text(
-                    selectedCouponDetail,
+                    selectedCouponDetail ?? '',
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor,
@@ -172,7 +171,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                     color: Color(0xff000000),
                   ),
                   title: Text(
-                    selectedStoreAddress,
+                    selectedStoreAddress ?? '',
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor,
@@ -187,7 +186,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                     color: Color(0xff000000),
                   ),
                   title: Text(
-                    selectedStorePhone,
+                    selectedStorePhone ?? '',
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor,
@@ -202,7 +201,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                     color: Color(0xff000000),
                   ),
                   title: Text(
-                    selectedStoreUrl,
+                    selectedStoreUrl ?? '',
                     style: TextStyle(
                       fontSize: 20,
                       color: textColor,
@@ -217,7 +216,7 @@ class _CouponDetailsState extends State<CouponDetails> {
                     shape:
                         RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                   ),
-                  onPressed: (){},
+                  onPressed: () {},
                   child: Text(
                     "More Info",
                     style: TextStyle(

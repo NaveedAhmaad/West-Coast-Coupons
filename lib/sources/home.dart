@@ -50,11 +50,12 @@ class _HomeState extends State<Home> {
           SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.55,
+              height: MediaQuery.of(context).size.height*0.6,
               child: Stack(
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 50),
+                    // Background image of blue color to show the title and sub-title
                     child: Image(
                       image: AssetImage("assets/explore_background_top.png"),
                       width: MediaQuery.of(context).size.width,
@@ -62,36 +63,40 @@ class _HomeState extends State<Home> {
                   ),
                   Container(
                     padding: EdgeInsets.only(left: 30, top: 70),
+                    //Main title of this screen
                     child: Text(
                       "Explore",
                       style: TextStyle(
                         color: Color(0xffffffff),
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        fontWeight: FontWeight.w600,
                         fontFamily: 'bitter',
                       ),
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.only(left: 30, top: 120),
+                    //Sub-title of this screen
                     child: Text(
                       "Latest deals and discounts",
                       style: TextStyle(
                           color: Color(0xffffffff),
-                          fontSize: 24,
+                          fontSize: 22,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'san-serif'),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(10, 170, 10, 0),
+                    margin: EdgeInsets.fromLTRB(10, 160, 10, 0),
+                    //top banner-image of to show the deal
                     child: Image(
                       image: AssetImage("assets/explore_banner.png"),
                       width: MediaQuery.of(context).size.width,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 30, top: 435),
+                    padding: EdgeInsets.only(left: 30, top: 450),
+                    // title to show the Categories available
                     child: Text(
                       "Categories",
                       style: TextStyle(
@@ -128,7 +133,7 @@ class _HomeState extends State<Home> {
                           title: Text(
                             items[index],
                             style: TextStyle(
-                                fontSize: 24,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'san-serif'),
                           ),
