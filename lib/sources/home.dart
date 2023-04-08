@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
           SingleChildScrollView(
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height*0.6,
+              height: MediaQuery.of(context).size.height*0.56,
               child: Stack(
                 children: [
                   Container(
@@ -59,6 +59,7 @@ class _HomeState extends State<Home> {
                     child: Image(
                       image: AssetImage("assets/explore_background_top.png"),
                       width: MediaQuery.of(context).size.width,
+
                     ),
                   ),
                   Container(
@@ -92,10 +93,12 @@ class _HomeState extends State<Home> {
                     child: Image(
                       image: AssetImage("assets/explore_banner.png"),
                       width: MediaQuery.of(context).size.width,
+
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 30, top: 450),
+                    alignment: Alignment.bottomLeft,
+                    padding: EdgeInsets.only(left: 30),
                     // title to show the Categories available
                     child: Text(
                       "Categories",
